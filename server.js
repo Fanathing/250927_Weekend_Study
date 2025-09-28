@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./views/boards/index.html"))
 })
 
-app.use("boards", boardRouter);
+app.use("/boards", boardRouter);
 
 app.listen(3000, () => {
     console.log("시간은,,움직이기 시작한다");
