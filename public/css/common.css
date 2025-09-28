@@ -52,8 +52,8 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;  /* 가로 중앙 정렬 */
-    justify-content: flex-start; /* 필요시 세로 정렬 조절 */
+    align-items: center;
+    justify-content: flex-start;
     padding: 40px 20px;
     text-align: center;
     width: 100%;
@@ -61,7 +61,7 @@ main {
 
 ul {
     list-style: none;
-    width: 600px;          /* 원하는 최대 너비 */
+    width: 600px;
     margin-bottom: 30px;
     padding: 0;
 }
