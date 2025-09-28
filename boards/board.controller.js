@@ -40,9 +40,21 @@ const postCreate = async(req, res) => {
     }
 }
 
+const getView = async(req, res) => {
+    try {
+        const [board] = await boardRepository.findOne(req.params.id);
+        res.render("boards/view.html", {
+            board
+        })
+    } catch (error) {
+        res.status(404).send("게시글을 불러올 수 없습니다.")
+    }
+}
+
 module.exports = {
     getBoards,
     postBoards,
     getCreate,
-    postCreate
+    postCreate,
+    getView
 }

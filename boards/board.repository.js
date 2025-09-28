@@ -15,9 +15,15 @@ const create = async({user_id, writer, title, content }) => {
     return result
 }
 
+const findOne = async(id) => {
+    const [result] = await pool.query(`SELECT * FROM boards WHERE id="${id}";`);
+    return result
+}
+
 module.exports = {
     findAll,
     findUser,
-    create
+    create,
+    findOne
 }
 
