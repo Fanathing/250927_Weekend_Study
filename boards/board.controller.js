@@ -1,4 +1,3 @@
-const { render } = require("nunjucks");
 const boardRepository = require("./board.repository.js");
 const path = require("path");
 
@@ -13,7 +12,7 @@ const getBoards = async(req, res) => {
     };
 };
 
-const postBoards = async(req, res) => {
+const postUserInfor = async(req, res) => {
     try {
         const users = await boardRepository.findUser(req.body);
 
@@ -83,7 +82,7 @@ const postUpdate = async(req, res) => {
 
 module.exports = {
     getBoards,
-    postBoards,
+    postUserInfor,
     getCreate,
     postCreate,
     getView,
