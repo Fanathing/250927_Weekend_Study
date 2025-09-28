@@ -47,7 +47,16 @@ const getView = async(req, res) => {
             board
         })
     } catch (error) {
-        res.status(404).send("게시글을 불러올 수 없습니다.")
+        res.status(404).send("게시글을 불러올 수 없습니다.");
+    }
+}
+
+const getDelete = async(req, res) => {
+    try {
+        await boardRepository.deleteData(req.params.id);
+        res.redirect("/boards");
+    } catch (error) {
+        res.status(404).send("삭제에 실패했습니다!");
     }
 }
 
@@ -56,5 +65,6 @@ module.exports = {
     postBoards,
     getCreate,
     postCreate,
-    getView
+    getView,
+    getDelete
 }

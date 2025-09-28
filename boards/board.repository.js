@@ -20,10 +20,16 @@ const findOne = async(id) => {
     return result
 }
 
+const deleteData = async(id) => {
+    const [result] = await pool.query(`DELETE FROM boards WHERE id="${id}";`);
+    return result
+}
+
 module.exports = {
     findAll,
     findUser,
     create,
-    findOne
+    findOne,
+    deleteData
 }
 
