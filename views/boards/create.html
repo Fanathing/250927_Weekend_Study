@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 생성 페이지</title>
+</head>
+<body>
+    <header>
+        <h1>Community</h1>
+    </header>
+    <main>
+        <h2>글을 작성하라 구리</h2>
+        
+        <form action="/boards/create" method="post">
+            <input type="text" name="user_id" placeholder="아이디를 입력하세요">
+            <input type="text" name="writer" placeholder="작성자를 입력하세요">
+            <input type="text" name="title" placeholder="제목을 입력하세요">
+            <input type="text" name="content" placeholder="내용을 입력하세요">
+            <button class="createPost"type="submit">작성 완료</button>
+        </form>
+
+    </main>
+    <footer>
+        2025년은 내 것
+    </footer>
+</body>
+</html>

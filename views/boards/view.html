@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Community</h1>
+    </header>
+    <main>
+        <h2>게시글을 상세페이지다 구리</h2>
+        <div class="content">
+            <div>
+                <h3>{{ board.title }} / {{ board.writer }}</h3>
+            </div>
+            <ul>
+                <p>{{ board.content}}</p>
+            </ul>
+        </div>
+        <div>
+            <button onclick="location.href=`boards/delete/{{ board.id }}`">삭제 하기</button>
+            <button onclick="location.href=`boards/update/{{ board.id }}`">수정 하기</button>
+        </div>
+    </main>
+    <footer>
+        2025년은 내 것
+    </footer>
+</body>
+</html>

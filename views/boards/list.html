@@ -16,11 +16,12 @@
                 {% for board in boards %}
                 <li>
                     <a>{{ board.id }}</a>
-                    <a>{{ board.title }}</a>
+                    <a href="/boards/view/{{ board.id }}">{{ board.title }}</a>
                     <a>{{ board.writer }}</a>
                 </li>
                 {% endfor %}
             </ul>
+            <button onclick="location.href=`/boards/create`">글 작성</button>
         </div>
 
     </main>

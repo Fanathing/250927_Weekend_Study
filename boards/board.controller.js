@@ -1,7 +1,7 @@
 const boardRepository = require("./board.repository.js");
 const path = require("path");
 
-const getList = async(req, res) => {
+const getBoards = async(req, res) => {
     try {
         const boards = await boardRepository.findAll();
         res.render("boards/list.html",{
@@ -12,7 +12,7 @@ const getList = async(req, res) => {
     }
 }
 
-const postList = async(req, res) => {
+const postBoards = async(req, res) => {
     try {
         const users = await boardRepository.findUser(req.body);
 
@@ -20,14 +20,29 @@ const postList = async(req, res) => {
             return res.status(404).send("아이디 또는 비밀번호가 틀렸습니다.");
         }
         
-        res.redirect("/boards/list");
+        res.redirect("/boards");
 
     } catch (error) {
         res.status(404).send("로그인 오류");
     }
 }
 
+const getCreate = async(req, res) => {
+    res.sendFile(path.join(__dirname, "../views/boards/create.html"));
+}
+
+const postCreate = async(req, res) => {
+    try {
+        const { insertId } = await boardRepository.create(req.body);
+        res.redirect("/boards");
+    } catch (error) {
+        res.status(404).send("글 작성에 실패하였습니다.");
+    }
+}
+
 module.exports = {
-    getList,
-    postList
+    getBoards,
+    postBoards,
+    getCreate,
+    postCreate
 }

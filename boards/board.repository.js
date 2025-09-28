@@ -10,8 +10,14 @@ const findUser = async({ user_id, user_pw }) => {
     return result
 }
 
+const create = async({user_id, writer, title, content }) => {
+    const [result] = await pool.query(`INSERT INTO boards(user_id, writer, title, content) values("${user_id}", "${writer}", "${title}", "${content}");`);
+    return result
+}
+
 module.exports = {
     findAll,
-    findUser
+    findUser,
+    create
 }
 
