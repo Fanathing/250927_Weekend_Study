@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/view.css">
 </head>
 <body>
     <header>
@@ -12,20 +14,22 @@
     <main>
         <h2>게시글을 상세페이지다 구리</h2>
         <div class="content">
-            <div>
-                <h3>{{ board.title }} / {{ board.writer }}</h3>
+            <div class="board-header">
+                <h3 class="board-title">{{ board.title }}</h3>
+                <span class="board-writer">작성자: {{ board.writer }}</span>
             </div>
-            <ul>
+            <div class="board-body">
                 <p>{{ board.content }}</p>
-            </ul>
+            </div>
         </div>
         <div>
+            <button class="backBtn"type="button" onclick="location.href=`/boards`">뒤로 가기</button>
             <button onclick="location.href=`/boards/delete/{{ board.id }}`">삭제 하기</button>
             <button onclick="location.href=`/boards/update/{{ board.id }}`">수정 하기</button>
         </div>
     </main>
     <footer>
-        2025년은 내 것
+        All copyrights belong to Sungyeong
     </footer>
 </body>
 </html>

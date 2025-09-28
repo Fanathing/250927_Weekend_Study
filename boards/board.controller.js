@@ -10,8 +10,8 @@ const getBoards = async(req, res) => {
         })
     } catch (error) {
         res.status(404).send("게시판 진입 오류");
-    }
-}
+    };
+};
 
 const postBoards = async(req, res) => {
     try {
@@ -25,12 +25,12 @@ const postBoards = async(req, res) => {
 
     } catch (error) {
         res.status(404).send("로그인 오류");
-    }
-}
+    };
+};
 
 const getCreate = async(req, res) => {
     res.sendFile(path.join(__dirname, "../views/boards/create.html"));
-}
+};
 
 const postCreate = async(req, res) => {
     try {
@@ -38,8 +38,8 @@ const postCreate = async(req, res) => {
         res.redirect("/boards");
     } catch (error) {
         res.status(404).send("글 작성에 실패하였습니다.");
-    }
-}
+    };
+};
 
 const getView = async(req, res) => {
     try {
@@ -49,8 +49,8 @@ const getView = async(req, res) => {
         })
     } catch (error) {
         res.status(404).send("게시글을 불러올 수 없습니다.");
-    }
-}
+    };
+};
 
 const getDelete = async(req, res) => {
     try {
@@ -58,19 +58,28 @@ const getDelete = async(req, res) => {
         res.redirect("/boards");
     } catch (error) {
         res.status(404).send("삭제에 실패했습니다!");
-    }
-}
+    };
+};
 
-const getupdate = async(req, res) => {
+const getUpdate = async(req, res) => {
     try {
         const [board] = await boardRepository.findOne(req.params.id);
         res.render("boards/update.html", {
             board
         });
     } catch (error) {
-        res.status(404).send("수정 페이지를 불러오지 못했습니다!")
-    }
-}
+        res.status(404).send("수정 페이지를 불러오지 못했습니다!");
+    };
+};
+
+const postUpdate = async(req, res) => {
+    try {
+        await boardRepository.updateData(req.params.id, req.body);
+        res.redirect(`/boards/view/${req.params.id}`);
+    } catch (error) {
+        res.status(404).send("수정에 실패하였습니다!");
+    };
+};
 
 module.exports = {
     getBoards,
@@ -79,5 +88,6 @@ module.exports = {
     postCreate,
     getView,
     getDelete,
-    getupdate
+    getUpdate,
+    postUpdate
 }

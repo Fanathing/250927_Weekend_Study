@@ -15,7 +15,11 @@ router.get("/view/:id", boardController.getView);
 router.get("/delete/:id", boardController.getDelete);
 
 //수정페이지
-router.get("/update/:id", boardController.getupdate);
+router.get("/update/:id", boardController.getUpdate);
+
+//수정페이지에서 post 요청
+router.post("/update/:id", boardController.postUpdate);
+
 
 
 module.exports = router;

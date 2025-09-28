@@ -25,11 +25,17 @@ const deleteData = async(id) => {
     return result
 }
 
+const updateData = async(id,{ writer, title, content }) => {
+    const [result] = await pool.query(`UPDATE boards SET writer="${writer}", title="${title}", content="${content}" WHERE id= "${id}";`);
+    return result
+}
+
 module.exports = {
     findAll,
     findUser,
     create,
     findOne,
-    deleteData
+    deleteData,
+    updateData
 }
 
