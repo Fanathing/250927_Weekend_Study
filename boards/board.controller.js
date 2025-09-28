@@ -34,7 +34,7 @@ const getCreate = async(req, res) => {
 const postCreate = async(req, res) => {
     try {
         const { insertId } = await boardRepository.create(req.body);
-        res.redirect("/boards");
+        res.redirect(`/boards/view/${insertId}`);
     } catch (error) {
         res.status(404).send("글 작성에 실패하였습니다.");
     };
