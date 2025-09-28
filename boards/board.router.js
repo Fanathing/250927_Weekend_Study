@@ -15,7 +15,7 @@ router.get("/view/:id", boardController.getView);
 router.get("/delete/:id", boardController.getDelete);
 
 //수정페이지
-// router.get("/update/:id", boardController.getupdate);
+router.get("/update/:id", boardController.getupdate);
 
 
 module.exports = router;

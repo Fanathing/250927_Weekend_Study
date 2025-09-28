@@ -1,3 +1,4 @@
+const { render } = require("nunjucks");
 const boardRepository = require("./board.repository.js");
 const path = require("path");
 
@@ -60,11 +61,23 @@ const getDelete = async(req, res) => {
     }
 }
 
+const getupdate = async(req, res) => {
+    try {
+        const [board] = await boardRepository.findOne(req.params.id);
+        res.render("boards/update.html", {
+            board
+        });
+    } catch (error) {
+        res.status(404).send("수정 페이지를 불러오지 못했습니다!")
+    }
+}
+
 module.exports = {
     getBoards,
     postBoards,
     getCreate,
     postCreate,
     getView,
-    getDelete
+    getDelete,
+    getupdate
 }
